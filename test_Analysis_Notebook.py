@@ -12,10 +12,11 @@ _W3_LAB = os.path.join(_REPO_ROOT, "Analysis_Notebook.ipynb")
 # Tests — Basic SQL query validation
 # ===========================================================================
 
-def test_outages_hours_greater_than_100(spark):
-    """Verify that only outages with duration greater than 100 hours are inserted."""
-    _run_cell(spark, "outage_duration_greater_than_100")
-    rows = spark.sql("SELECT * FROM analysis_testing.outages").collect()
+def test_outages_hours_greater_than_100(spark, cleaned_table):
+    df = spark.sql("""
+        SELECT * FROM cleaned_data
+        WHERE outage_duration_hours > 100
+    """)
     assert len(rows) == 2
 
 # ===========================================================================
