@@ -48,7 +48,7 @@ def analysis_test_data(spark):
             event_type STRING,
             alert_criteria STRING,
             area_affected_raw STRING
-        ) USING DELTA
+        )
     """)
 
     spark.sql("""
