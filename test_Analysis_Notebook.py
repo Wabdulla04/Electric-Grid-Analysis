@@ -47,7 +47,7 @@ def analysis_test_data(spark):
             nerc_region STRING,
             event_type STRING,
             alert_criteria STRING,
-            area_affected_raw STRING,
+            area_affected_raw STRING
         ) USING DELTA
     """)
 
