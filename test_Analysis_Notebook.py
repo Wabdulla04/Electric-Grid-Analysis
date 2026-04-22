@@ -2,7 +2,7 @@
 
 import os
 import pytest
-from tests.notebook_utils import find_cell
+from notebook_utils import find_cell
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _W3_LAB = os.path.join(_REPO_ROOT, "Analysis_Notebook.ipynb")
