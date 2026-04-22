@@ -1,0 +1,39 @@
+name: Week 3 Tests (SQL & Testing)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'Analysis_Notebook.ipynb'
+      - 'test_Analysis_Notebook.py'
+      - '.github/workflows/test_analysis.yml'
+  push:
+    paths:
+      - 'Analysis_Notebook.ipynb'
+      - 'test_Analysis_Notebook.py'
+
+jobs:
+  test-week3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-test.txt
+
+      - name: Run Week 3 tests
+        run: |
+          pytest test_Analysis_Notebook.py -v --tb=short
+
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "✅ Analysis tests completed"
