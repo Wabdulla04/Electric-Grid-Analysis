@@ -41,20 +41,6 @@ def cleaned_df(spark, volume_path):
 # Register as SQL Table
 # ---------------------------
 @pytest.fixture(scope="session")
-def cleaned_table(spark, cleaned_df):
-    table_name = "cleaned_data"
-    cleaned_df.createOrReplaceTempView(table_name)
-    return table_name
-
-
-# ---------------------------
-# Optional: Population Dataset (if needed later)
-# ---------------------------
-@pytest.fixture(scope="session")
-def population_df(spark, volume_path):
-    return (
-        spark.read
-        .option("header", True)
-        .option("inferSchema", True)
-        .csv(f"{volume_path}/population.csv")
-    )
+def cleaned_table(cleaned_df):
+    cleaned_df.createOrReplaceTempView("cleaned_data")
+    return "cleaned_data"
