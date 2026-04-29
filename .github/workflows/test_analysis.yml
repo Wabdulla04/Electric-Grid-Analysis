@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'Analysis_Notebook.ipynb'
-      - 'test_Analysis_Notebook.py'
+      - 'src/Analysis_Notebook.ipynb'
+      - 'test/test_Analysis_Notebook.py'
       - '.github/workflows/test_analysis.yml'
   push:
     paths:
-      - 'Analysis_Notebook.ipynb'
-      - 'test_Analysis_Notebook.py'
+      - 'src/Analysis_Notebook.ipynb'
+      - 'test/test_Analysis_Notebook.py'
 
 jobs:
   test-week3:
@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Week 3 tests
         run: |
-          pytest test_Analysis_Notebook.py -v --tb=short
+          pytest test/test_Analysis_Notebook.py -v --tb=short
 
       - name: Test Summary
         if: always()
