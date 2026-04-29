@@ -39,7 +39,7 @@ def analysis_test_data(spark):
     spark.sql("CREATE SCHEMA IF NOT EXISTS analysis_testing")
 
     spark.sql("""
-        CREATE OR REPLACE TABLE analysis_testing.cleaned_data (
+        CREATE TABLE analysis_testing.cleaned_data (
             event_id INT,
             year_sheet INT,
             outage_duration_hours DOUBLE,
