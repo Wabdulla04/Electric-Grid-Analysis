@@ -7,8 +7,8 @@ from dateutil.parser import ParserError
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
-INPUT_XLSX = "DOE_Electric_Disturbance_Events.xlsx"
-OUTPUT_CSV = "doe_events_db_ready.csv"
+INPUT_XLSX = "Raw Datasets/DOE_Electric_Disturbance_Events.xlsx"
+OUTPUT_CSV = "src/doe_events_db_ready.csv"
 
 # ---------------------------------------------------------------------------
 # Constants

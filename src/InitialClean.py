@@ -1,9 +1,12 @@
 import re
+import warnings
 import numpy as np
 import pandas as pd
 
-INPUT_XLSX = "DOE_Electric_Disturbance_Events.xlsx"
-OUTPUT_CSV = "doe_events_db_ready.csv"
+warnings.filterwarnings("ignore", category=UserWarning)
+
+INPUT_XLSX = "Raw Datasets/DOE_Electric_Disturbance_Events.xlsx"
+OUTPUT_CSV = "src/doe_events_db_ready.csv"
 
 # drops whitespace-only / mostly blank rows
 MIN_NON_NULL_PER_ROW = 4
