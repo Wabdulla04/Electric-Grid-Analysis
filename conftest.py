@@ -35,14 +35,14 @@ schema = StructType([
 @pytest.fixture(scope="session")
 def cleaned_df(spark):
     df = spark.createDataFrame([
-        (1, 2019, 10.0, 50, 1000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (2, 2020, 20.0, 100, 2000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (3, 2021, 30.0, 25.3, 3000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (4, 2022, 40.0, 231.2, 4000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (5, 2023, 50.0, 3, 5000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (6, 2024, 150.0, 500, 6000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-        (7, 2025, 200.0, 600, 7000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-    ], schema = schema)
+        (1, 2019, 10.0,   50.0,  1000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (2, 2020, 20.0,  100.0,  2000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (3, 2021, 30.0,   25.3,  3000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (4, 2022, 40.0,  231.2,  4000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (5, 2023, 50.0,    3.0,  5000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (6, 2024, 150.0, 500.0,  6000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+        (7, 2025, 200.0, 600.0,  7000000.0, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
+    ], schema=schema)
     return df
 
 
