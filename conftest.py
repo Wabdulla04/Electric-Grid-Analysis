@@ -1,5 +1,6 @@
 import pytest
 from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, LongType, TimestampType
 
 
 # ---------------------------
@@ -18,6 +19,19 @@ def spark():
 # ---------------------------
 # Load Cleaned Dataset
 # ---------------------------
+
+schema = StructType([
+    StructField("event_id", LongType(),   True),
+    StructField("year_sheet", LongType(),   True),
+    StructField("outage_duration_hours", DoubleType(), True),
+    StructField("customers_affected", DoubleType(),   True),
+    StructField("demand_loss_mw", DoubleType(),   True),
+    StructField("nerc_region", StringType(), True),
+    StructField("event_type", StringType(), True),
+    StructField("alert_criteria", StringType(), True),
+    StructField("area_affected_raw", StringType(), True),
+])
+
 @pytest.fixture(scope="session")
 def cleaned_df(spark):
     df = spark.createDataFrame([
@@ -28,7 +42,7 @@ def cleaned_df(spark):
         (5, 2023, 50.0, 3, 5000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
         (6, 2024, 150.0, 500, 6000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
         (7, 2025, 200.0, 600, 7000000, 'ERCOT', 'Outage', 'Customers Affected', 'Texas'),
-    ], ["event_id", "year_sheet", "outage_duration_hours", "customers_affected", "demand_loss_mw", "nerc_region", "event_type", "alert_criteria", "area_affected_raw"])
+    ], schema = schema)
     return df
 
 
