@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
-          pip install -r requirements-test.txt
+          pip install -r test/requirements-test.txt
       - name: Run Week 3 tests
         run: |
           pytest test/test_Analysis_Notebook.py -v --tb=short
